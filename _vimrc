@@ -71,6 +71,26 @@ highlight String guifg=#66FF00
 highlight Search guibg=White
 
 
+function SmartTab()
+
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+    return "\<Tab>"
+  else
+    if &omnifunc != ''
+      return "\<C-X>\<C-O>"
+    elseif &dictionary != ''
+      return "\<C-K>"
+    else
+      return "\<C-N>"
+    endif
+  endif
+
+endfunction
+
+" Bind tab to the SmartTab function
+inoremap <Tab> <C-R>=SmartTab()<cr>
+
+
 " Ruby syntax token evaluator.
 function RubyEndToken ()
 
