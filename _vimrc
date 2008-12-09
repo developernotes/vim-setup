@@ -2,6 +2,9 @@
 " Start maximized
 "au GUIEnter * simalt ~x
 
+" Allows buffers to be hidden
+set hidden
+
 " File type mapping
 autocmd BufRead,BufNewFile *.vb setlocal filetype=vbnet
 autocmd FileType ruby,eruby call UseRubyIndent()
@@ -14,7 +17,7 @@ autocmd BufEnter * lcd %:p:h
 
 " Map backward/forward buffer navigation with Ctrl + left/right.
 map <C-right> <ESC>:bn<CR>
-map <C-left> <ESC>:bp<CR>
+map <C-left> <ESC>:bp<CR>"
 
 " F5 mapping for executing scripts.
 map <F5> <ESC>:!%<CR>
